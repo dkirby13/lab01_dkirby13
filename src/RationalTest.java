@@ -1,3 +1,4 @@
+import java.lang.Object;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -25,6 +26,28 @@ public class RationalTest {
     @Test(expected = IllegalArgumentException.class)
     public void test_denom_zero() {
 	Rational r = new Rational(1,0);
+    }
+
+    @Test
+	public void test_plus(){
+	Rational r = new Rational(186,42);
+	assertEquals(r, r_24_6.lcm(3,7));
+    }
+    
+       
+    @Test
+    public void test_lcm(){
+	assertEquals(15, r_5_15.lcm(5,15));
+    }
+
+    @Test
+    public void test_lcm24(){
+	assertEquals(24, r_24_6.lcm(24,6));
+    }
+
+    @Test
+    public void test_lcm7(){
+	assertEquals(21, r_3_7.lcm(3,7));
     }
     
     @Test

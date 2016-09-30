@@ -1,3 +1,4 @@
+import java.lang.*;
 public class Rational {
 
     private int num;
@@ -16,6 +17,21 @@ public class Rational {
 	    return a;
 	else
 	    return gcd(b%a, a);
+    }
+
+    public static int lcm(int a, int b){
+	return Math.abs(a*b) / gcd(a,b);
+
+    }
+
+    public Rational plus(Rational r){
+	int lcm = lcm(r.denom, this.denom);
+	int m1 = lcm/this.denom;
+	int m2 = lcm/r.denom;
+	int num = m1*this.num + m2*r.num;
+	Rational ans = new Rational(num,lcm);
+
+	return ans;
     }
     
     public Rational() {
