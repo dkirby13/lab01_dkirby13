@@ -23,7 +23,7 @@ public class Rational {
 	return Math.abs(a*b) / gcd(a,b);
 
     }
-
+    
     public Rational plus(Rational r){
 	int lcm = lcm(r.denom, this.denom);
 	int m1 = lcm/this.denom;
