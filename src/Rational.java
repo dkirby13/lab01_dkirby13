@@ -33,6 +33,23 @@ public class Rational {
 
 	return ans;
     }
+
+    public static Rational sum(Rational a, Rational b){
+	int lcm = lcm(a.denom, b.denom);
+	int m1 = lcm/b.denom;
+	int m2 = lcm/a.denom;
+	int num = m1*b.num + m2*a.num;
+	Rational ans = new Rational(num,lcm);
+
+	return ans;
+    }
+
+    public Rational minus(Rational r){
+	int comDenom = lcm (r.denom, this.denom);
+	int newRNum = r.num * this.denom;
+	int newThisNum = this.num * r.denom;
+	return new Rational((newRNum + (-1*newThisNum)), comDenom);
+    }
     
     public Rational() {
 	this.num = 1;
