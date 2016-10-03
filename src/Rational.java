@@ -50,6 +50,22 @@ public class Rational {
 	int newThisNum = this.num * r.denom;
 	return new Rational((newRNum + (-1*newThisNum)), comDenom);
     }
+
+    public Rational reciprocalOf(){
+	if(this.num == 0){
+	    throw new ArithmeticException("Numerator Can't Be Zero");
+	}
+       	return new Rational(this.denom, this.num);
+        
+    }
+
+    public Rational dividedBy(Rational r){
+	return this.times(r.reciprocalOf());
+    }
+    
+    public static Rational quotient(Rational a, Rational b){
+	return a.dividedBy(b);
+    }
     
     public Rational() {
 	this.num = 1;

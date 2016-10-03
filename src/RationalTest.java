@@ -56,17 +56,41 @@ public class RationalTest {
     
     @Test
     public void test_lcm(){
-	assertEquals(15, r_5_15.lcm(5,15));
+	assertEquals(15, Rational.lcm(5,15));
     }
-    
+
+    @Test
+    public void test_reciprocalOf_r_3_7(){
+	assertEquals("7/3", r_3_7.reciprocalOf().toString());
+    }
+
+    @Test
+    public void test_reciprocalOf_r_24_6(){
+	assertEquals("1/4", r_24_6.reciprocalOf().toString());
+    }
+
+    @Test
+    public void test_reciprocalOf_r_5_15(){
+	assertEquals("3", r_5_15.reciprocalOf().toString());
+    }
+	
     @Test
     public void test_lcm24(){
-	assertEquals(24, r_24_6.lcm(24,6));
+	assertEquals(24, Rational.lcm(24,6));
     }
     
     @Test
     public void test_lcm7(){
-	assertEquals(21, r_3_7.lcm(3,7));
+	assertEquals(21, Rational.lcm(3,7));
+    }
+
+    @Test
+    public void test_r_3_7DividedBy_r_20_25(){
+	assertEquals("15/28", r_3_7.dividedBy(r_20_25).toString());
+    }
+
+    public void test_r_3_7_quotient_r_20_25(){
+	assertEquals("15/28", Rational.quotient(r_3_7, r_20_25));
     }
     
     @Test
