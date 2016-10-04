@@ -48,7 +48,19 @@ public class Rational {
 	int comDenom = lcm (r.denom, this.denom);
 	int newRNum = r.num * this.denom;
 	int newThisNum = this.num * r.denom;
-	return new Rational((newRNum + (-1*newThisNum)), comDenom);
+	Rational ans = new Rational((newRNum + (-1*newThisNum)), comDenom);
+	if(ans.denom < 0 && ans.num > 0)
+	    {
+		ans.denom = ans.denom * -1;
+		ans.num = ans.num * -1;
+	    }
+	return ans;
+	//return new Rational((newRNum + (-1*newThisNum)), comDenom);
+	    //10return Rational.difference(this, r);
+    }
+
+    public static Rational difference(Rational a, Rational b){
+	return a.minus(b);
     }
 
     public Rational reciprocalOf(){
