@@ -50,8 +50,10 @@
   </target>
 
   <property name="javadoc_absolute_path" location="javadoc"/>
+  <property name="public_javadoc_absolute_path" location="../lab01_javadoc_dkirby13/javadoc"/>
 
-  <target name="javadoc" depends="compile" description="generate javadoc">
+  
+ <target name="javadoc" depends="compile" description="generate javadoc">
     <delete>
       <fileset dir="javadoc" />
     </delete>
@@ -60,11 +62,24 @@
 	<include name="*.java"/>
       </fileset>
       <classpath refid="project.class.path" />
-      <link href="http://docs.oracle.com/javase/8/docs/api/" />          
+      <link href="https://docs.oracle.com/javase/8/docs/api/" />          
     </javadoc>
     <echo>
       javadoc written to file://${javadoc_absolute_path}/index.html
-    </echo> 
+      copying to $(public_javadoc_absolute_path}/index.html
+    </echo>
+     <delete quiet="true">                                                                        
+      <fileset dir="${public_javadoc_absolute_path}" />                                          
+    </delete>                                                                                    
+    <mkdir dir="${public_javadoc_absolute_path}" />                                              
+    <copy todir="${public_javadoc_absolute_path}">                                               
+      <fileset dir="javadoc" />                                                                  
+    </copy>                                                                                      
+    <echo>                                                                                       
+      javadoc copied to ${public_javadoc_absolute_path}/index.html                               
+      TO PUBLISH: cd into that repo, then git add javadoc;                                       
+        git commit -m "update javadoc"; git push origin gh-pages                                
+    </echo>    
   </target>
   
 </project>

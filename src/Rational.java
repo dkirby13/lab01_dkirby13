@@ -30,7 +30,12 @@ public class Rational {
 	int m2 = lcm/r.denom;
 	int num = m1*this.num + m2*r.num;
 	Rational ans = new Rational(num,lcm);
-
+	//changing the negative to top if on bottom
+       	if(ans.denom < 0 && ans.num > 0)
+	  {
+		ans.denom = ans.denom * -1;
+		ans.num = ans.num * -1;
+	  }
 	return ans;
     }
 
@@ -40,14 +45,19 @@ public class Rational {
 	int m2 = lcm/a.denom;
 	int num = m1*b.num + m2*a.num;
 	Rational ans = new Rational(num,lcm);
-
+	//changing the negative to top if on bottom
+       	if(ans.denom < 0 && ans.num > 0)
+	  {
+		ans.denom = ans.denom * -1;
+		ans.num = ans.num * -1;
+	  }
 	return ans;
     }
 
     public Rational minus(Rational r){
 	Rational ans = new Rational(r.num * -1, r.denom);
 	ans = this.plus(ans);
-	//chaning the negative to top if on bottom
+	//changing the negative to top if on bottom
        	if(ans.denom < 0 && ans.num > 0)
 	  {
 		ans.denom = ans.denom * -1;
