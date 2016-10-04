@@ -45,18 +45,15 @@ public class Rational {
     }
 
     public Rational minus(Rational r){
-	int comDenom = lcm (r.denom, this.denom);
-	int newRNum = r.num * this.denom;
-	int newThisNum = this.num * r.denom;
-	Rational ans = new Rational((newRNum + (-1*newThisNum)), comDenom);
-	if(ans.denom < 0 && ans.num > 0)
-	    {
+	Rational ans = new Rational(r.num * -1, r.denom);
+	ans = this.plus(ans);
+	//chaning the negative to top if on bottom
+       	if(ans.denom < 0 && ans.num > 0)
+	  {
 		ans.denom = ans.denom * -1;
 		ans.num = ans.num * -1;
-	    }
-	return ans;
-	//return new Rational((newRNum + (-1*newThisNum)), comDenom);
-	    //10return Rational.difference(this, r);
+	  }
+	  return ans;
     }
 
     public static Rational difference(Rational a, Rational b){
