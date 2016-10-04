@@ -74,6 +74,11 @@ public class Rational {
 	if(this.num == 0){
 	    throw new ArithmeticException("Numerator Can't Be Zero");
 	}
+	if(this.num <0)
+	    {
+		this.num = this.num * -1;
+		this.denom = this.denom * -1;
+	    }
        	return new Rational(this.denom, this.num);
         
     }
