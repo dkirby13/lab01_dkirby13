@@ -30,12 +30,6 @@ public class Rational {
 	int m2 = lcm/r.denom;
 	int num = m1*this.num + m2*r.num;
 	Rational ans = new Rational(num,lcm);
-	//changing the negative to top if on bottom
-       	if(ans.denom < 0 && ans.num > 0)
-	  {
-		ans.denom = ans.denom * -1;
-		ans.num = ans.num * -1;
-	  }
 	return ans;
     }
 
@@ -45,24 +39,12 @@ public class Rational {
 	int m2 = lcm/a.denom;
 	int num = m1*b.num + m2*a.num;
 	Rational ans = new Rational(num,lcm);
-	//changing the negative to top if on bottom
-       	if(ans.denom < 0 && ans.num > 0)
-	  {
-		ans.denom = ans.denom * -1;
-		ans.num = ans.num * -1;
-	  }
 	return ans;
     }
 
     public Rational minus(Rational r){
 	Rational ans = new Rational(r.num * -1, r.denom);
 	ans = this.plus(ans);
-	//changing the negative to top if on bottom
-       	if(ans.denom < 0 && ans.num > 0)
-	  {
-		ans.denom = ans.denom * -1;
-		ans.num = ans.num * -1;
-	  }
 	  return ans;
     }
 
@@ -75,11 +57,6 @@ public class Rational {
 	    throw new ArithmeticException("Numerator Can't Be Zero");
 	}
 	Rational ans = new Rational(this.denom, this.num);
-	if(ans.denom <0)
-	    {
-		this.num = this.num * -1;
-		this.denom = this.denom * -1;
-	    }
        	return ans;
         
     }
@@ -111,6 +88,11 @@ public class Rational {
     }
 
     public String toString() {
+	if(denom < 0)
+	    {
+		denom = denom * -1;
+		num = num * -1;
+	    }
 	if (denom == 1 || num == 0)
 	    return "" + num;
 	return num + "/" + denom;
