@@ -1,3 +1,10 @@
+/**
+
+   @Authors: Dominic Kirby, Hernan Duran Soto
+   @Lab:     Lab 01
+
+*/
+
 import java.lang.Object;
 import static org.junit.Assert.assertEquals;
 

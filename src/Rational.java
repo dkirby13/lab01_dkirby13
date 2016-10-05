@@ -1,3 +1,8 @@
+/**
+   @Authors: Dominic Kirby, Hernan Duran Soto
+   @Lab:     Lab 01
+*/
+
 import java.lang.*;
 public class Rational {
 
